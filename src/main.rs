@@ -199,8 +199,8 @@ impl App {
     fn copy_file(&mut self) {
         let base = dirs::home_dir()
             .unwrap()
-            .join(".lunarclient/offline/multiver/somanysweats");
-        let src = match std::fs::read_dir(&base) {
+            .join(".lunarclient/offline/multiver");
+        let src = match std::fs::read_dir(&base.join("somanysweats")) {
             Ok(src) => src,
             Err(_) => {
                 self.output.push("Couldn't find the ~/.lunarclient/offline/multiver/somanysweats/ directory. Make sure you create one with that name and place the SoManySweats-vX.X.X.jar file in there.".into());
